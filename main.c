@@ -8,6 +8,21 @@
 #define FUEL_PRICE 300
 
 
+typedef struct
+{
+    char name[50];
+} City;
+
+typedef struct
+{
+    char name[10];
+    int capacity;
+    float rate;
+    float speed;
+    float efficiency;  // km per liter
+
+}
+
 void showMainMenu()
 {
     int userChoice;
