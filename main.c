@@ -21,7 +21,33 @@ typedef struct
     float speed;
     float efficiency;  // km per liter
 
-}
+} Vehicle;
+
+typedef struct
+{
+    int source;
+    int destination;
+    float weight;
+    int vehicleType;
+    float distance;
+    float cost, fuelUsed, fuelCost, totalCost, profit, customerCharge, time;
+} Delivery;
+
+// Global variables
+City cities[MAX_CITIES];
+int distanceMatrix[MAX_CITIES][MAX_CITIES];
+int cityCount = 0;
+Delivery deliveries[MAX_DELIVERIES];
+int deliveryCount = 0;
+
+// Vehicle data
+Vehicle vehicles[3] =
+{
+    {"Van", 1000, 30, 60, 12},
+    {"Truck", 5000, 40, 50, 6},
+    {"Lorry", 10000, 80, 45, 4}
+};
+
 
 void showMainMenu()
 {
