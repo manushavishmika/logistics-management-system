@@ -48,6 +48,36 @@ Vehicle vehicles[3] =
     {"Lorry", 10000, 80, 45, 4}
 };
 
+void addCity()
+{
+    if(cityCount >= MAX_CITIES)
+    {
+        printf("City limit reached\n");
+        return;
+    }
+
+    printf("Enter city name: ");
+    scanf("%s", cities[cityCount].name);
+    cityCount++;
+    printf("City '%s' added successfully!\n", cities[cityCount-1].name);
+}
+
+void displayCities()
+{
+    printf("\n=== Available Cities ===\n");
+    if(cityCount == 0)
+    {
+        printf("No cities added yet.\n");
+        return;
+    }
+
+    for(int i = 0; i < cityCount; i++)
+    {
+        printf("%d. %s\n", i + 1, cities[i].name);
+    }
+}
+
+
 
 void showMainMenu()
 {
