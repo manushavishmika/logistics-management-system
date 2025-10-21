@@ -77,6 +77,44 @@ void displayCities()
     }
 }
 
+void editDistance()
+{
+    int sourceIdx, destIdx, distance;
+
+    if(cityCount < 2)
+    {
+        printf("Need at least 2 cities to set distances!\n");
+        return;
+    }
+
+    displayCities();
+    printf("Enter source city number: ");
+    scanf("%d", &sourceIdx);
+    printf("Enter destination city number: ");
+    scanf("%d", &destIdx);
+
+    if(sourceIdx < 1 || sourceIdx > cityCount || destIdx < 1 || destIdx > cityCount)
+    {
+        printf("Invalid city selection!\n");
+        return;
+    }
+
+    if(sourceIdx == destIdx)
+    {
+        printf("Distance from a city to itself is always 0.\n");
+        return;
+    }
+
+    printf("Enter distance in kilometers: ");
+    scanf("%d", &distance);
+
+    // Set distance both ways (symmetric)
+    distanceMatrix[sourceIdx-1][destIdx-1] = distance;
+    distanceMatrix[destIdx-1][sourceIdx-1] = distance;
+
+    printf("Distance between %s and %s set to %d km\n",
+           cities[sourceIdx-1].name, cities[destIdx-1].name, distance);
+}
 
 
 void showMainMenu()
