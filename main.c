@@ -117,6 +117,46 @@ void editDistance()
 }
 
 
+void displayDistanceTable()
+{
+    if(cityCount == 0)
+    {
+        printf("No cities to display!\n");
+        return;
+    }
+
+    printf("\n=== Distance Matrix (km) ===\n");
+
+    // Header row
+    printf("%-12s", "");
+    for(int i = 0; i < cityCount; i++)
+    {
+        printf("%10s", cities[i].name);
+    }
+    printf("\n");
+
+    // Data rows
+    for(int i = 0; i < cityCount; i++)
+    {
+        printf("%-12s", cities[i].name);
+        for(int j = 0; j < cityCount; j++)
+        {
+            if(i == j)
+            {
+                printf("%10d", 0);
+            }
+            else
+            {
+                printf("%10d", distanceMatrix[i][j]);
+            }
+        }
+        printf("\n");
+    }
+}
+
+
+
+
 void showMainMenu()
 {
     int userChoice;
